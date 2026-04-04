@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SoundPromoMarketplace.Application\SoundPromoMarketplace.Application.csproj" />
+    <ProjectReference Include="..\SoundPromoMarketplace.Infrastructure\SoundPromoMarketplace.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

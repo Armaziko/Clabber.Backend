@@ -1,1 +1,6 @@
-<Solution />
+<Solution>
+  <Project Path="SoundPromoMarketplace.Api/SoundPromoMarketplace.Api.csproj" />
+  <Project Path="SoundPromoMarketplace.Application/SoundPromoMarketplace.Application.csproj" />
+  <Project Path="SoundPromoMarketplace.Domain/SoundPromoMarketplace.Domain.csproj" />
+  <Project Path="SoundPromoMarketplace.Infrastructure/SoundPromoMarketplace.Infrastructure.csproj" />
+</Solution>
