@@ -1,0 +1,23 @@
+﻿using SoundPromoMarketplace.Domain.Generics;
+
+namespace SoundPromoMarketplace.Domain.Entities
+{
+    public class CreatorProfile : AggregateRoot
+    {
+        public CreatorProfile(Guid id) : base(id)
+        {
+        }
+
+        public Guid AccountId { get; set; }
+
+        public string DisplayName { get; set; } = string.Empty;
+
+        public string Bio { get; set; } = string.Empty; 
+
+        public string MainGenre { get; set; } = string.Empty;
+
+        public string CountryCode { get; set; } = string.Empty;
+
+        public decimal OverallRating { get; set; }
+    }
+}
