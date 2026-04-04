@@ -2,9 +2,9 @@
 {
     public class BaseEntity
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
-        public BaseEntity(string id)
+        public BaseEntity(Guid id)
         {
             this.Id = id;
         }

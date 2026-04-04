@@ -2,7 +2,7 @@
 {
     public class AggregateRoot : BaseEntity
     {
-        public AggregateRoot(string id) : base(id)
+        public AggregateRoot(Guid id) : base(id)
         {
         }
     }
