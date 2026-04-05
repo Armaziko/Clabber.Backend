@@ -19,5 +19,8 @@ namespace SoundPromoMarketplace.Domain.Entities
         public string Genre { get; set; } = string.Empty;
 
         public int DurationSeconds { get; set; }
+
+        // Navigation properties
+        public BuyerProfile Buyer { get; set; } = null!;
     }
 }

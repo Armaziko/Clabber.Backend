@@ -23,5 +23,12 @@ namespace SoundPromoMarketplace.Domain.Entities
         public decimal SuggestedOptimalBid { get; set; }
 
         public DateTime CreatedAt { get; set; }
+
+        // Navigation property
+        public BuyerProfile Buyer { get; set; } = null!;
+
+        public SocialChannel SocialChannel { get; set; } = null!;
+
+        public AudioTrack AuditoTrack { get; set; } = null!;
     }
 }

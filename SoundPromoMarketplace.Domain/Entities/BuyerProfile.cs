@@ -13,5 +13,11 @@ namespace SoundPromoMarketplace.Domain.Entities
         public string OrganizationName { get; set; } = string.Empty;
 
         public string Industry { get; set; } = string.Empty;
+
+        // Navigation properties
+
+        public Account Account { get; set; } = null!;
+
+        public ICollection<Campaign> Campaigns { get; set; } = null!;
     }
 }

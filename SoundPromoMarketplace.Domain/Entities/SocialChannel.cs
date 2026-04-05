@@ -22,5 +22,8 @@ namespace SoundPromoMarketplace.Domain.Entities
         public decimal EngagementRate { get; set; }
 
         public DateTime LastScrapedAt { get; set; }
+
+        // Navigation property
+        public CreatorProfile CreatorProfile { get; set; } = null!;
     }
 }

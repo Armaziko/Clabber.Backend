@@ -17,5 +17,8 @@ namespace SoundPromoMarketplace.Domain.Entities
         public int SharesMedian { get; set; }
 
         public decimal SaveRate { get; set; }
+
+        // Navigation properties
+        public SocialChannel SocialChannel { get; set; } = null!;
     }
 }

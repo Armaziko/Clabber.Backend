@@ -16,5 +16,13 @@ namespace SoundPromoMarketplace.Domain.Entities
         public CampaignStatus Status { get; set; }
 
         public DateTime StartDate { get; set; }
+
+        // Navigation properties
+
+        public BuyerProfile Buyer { get; set; } = null!;
+
+        public AudioTrack AudioTrack { get; set; } = null!;
+
+        public ICollection<Collaboration> Collaborations { get; set; } = null!;
     }
 }

@@ -19,5 +19,10 @@ namespace SoundPromoMarketplace.Domain.Entities
         public string CountryCode { get; set; } = string.Empty;
 
         public decimal OverallRating { get; set; }
+
+        // Navigation properties
+        public Account Account { get; set; } = null!;
+
+        public ICollection<SocialChannel> SocialChannels { get; set; } = null!;
     }
 }

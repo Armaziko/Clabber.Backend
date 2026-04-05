@@ -18,5 +18,10 @@ namespace SoundPromoMarketplace.Domain.Entities
         public CollaborationStatus Status { get; set; } 
 
         public string TrackingLink { get; set; } = string.Empty;
+
+        // Navigation property
+        public Campaign Campaign { get; set; } = null!;
+
+        public CreatorProfile CreatorProfile { get; set; } = null!;
     }
 }
