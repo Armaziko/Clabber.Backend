@@ -1,5 +1,6 @@
 using SoundPromoMarketplace.Api;
 using SoundPromoMarketplace.Application;
+using SoundPromoMarketplace.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddOpenApi();
 
 builder.SetupApi();
 builder.SetUpApplication();
+builder.SetUpInfrastructure();
 
 var app = builder.Build();
 

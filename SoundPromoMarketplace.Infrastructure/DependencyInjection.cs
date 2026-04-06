@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using SoundPromoMarketplace.Application.Abstractions;
+using SoundPromoMarketplace.Infrastructure.Persistence;
 
 namespace SoundPromoMarketplace.Infrastructure
 {
@@ -6,6 +9,8 @@ namespace SoundPromoMarketplace.Infrastructure
     {
         public static void SetUpInfrastructure(this IHostApplicationBuilder builder)
         {
+            builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }
