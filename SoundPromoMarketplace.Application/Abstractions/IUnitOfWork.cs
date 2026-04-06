@@ -2,6 +2,8 @@
 {
     public interface IUnitOfWork : IDisposable
     {
-        public Task<int> Commit();
+        public IRepository<T> Repository<T>() where T : class; 
+        public int Commit();
+        public Task<int> CommitAsync();
     }
 }

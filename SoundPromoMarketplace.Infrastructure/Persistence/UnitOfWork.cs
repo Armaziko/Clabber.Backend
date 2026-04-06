@@ -1,5 +1,4 @@
 ﻿using SoundPromoMarketplace.Application.Abstractions;
-using SoundPromoMarketplace.Domain.Entities;
 using System.Collections;
 
 namespace SoundPromoMarketplace.Infrastructure.Persistence
@@ -8,6 +7,7 @@ namespace SoundPromoMarketplace.Infrastructure.Persistence
     {
         private readonly ApplicationDbContext _context;
         private readonly Hashtable _repositories = new();
+        private bool _disposed = false;
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -28,14 +28,33 @@ namespace SoundPromoMarketplace.Infrastructure.Persistence
             return (IRepository<T>)_repositories[type]!;
         }
 
-        public Task<int> Commit()
+        public int Commit()
         {
             return _context.SaveChanges();
         }
 
+        public async Task<int> CommitAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this._disposed)
+            {
+                if (disposing)
+                {
+                    _context.Dispose();
+                }
+                _disposed = true;
+            }
+        }
+
         public void Dispose()
         {
-            _context.Dispose();
+            this.Dispose(true);
+
+            GC.SuppressFinalize(this);
         }
     }
 }

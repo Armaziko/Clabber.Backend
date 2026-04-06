@@ -1,4 +1,5 @@
-﻿using SoundPromoMarketplace.Application.Abstractions;
+﻿using Microsoft.EntityFrameworkCore;
+using SoundPromoMarketplace.Application.Abstractions;
 
 namespace SoundPromoMarketplace.Infrastructure.Persistence
 {
