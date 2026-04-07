@@ -16,5 +16,11 @@ namespace SoundPromoMarketplace.Domain.Entities
         public DateTime CreatedAt { get; set;  }
 
         public bool IsDeleted { get; set; }
+
+        // Navigation properties
+
+        public BuyerProfile? BuyerProfile { get; set; }
+
+        public CreatorProfile? CreatorProfile { get; set; }
     }
 }

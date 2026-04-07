@@ -19,5 +19,9 @@ namespace SoundPromoMarketplace.Domain.Entities
         public Account Account { get; set; } = null!;
 
         public ICollection<Campaign> Campaigns { get; set; } = null!;
+
+        public ICollection<AudioTrack> AudioTracks { get; set; } = null!;
+
+        public ICollection<PredictiveAnalysis> PredictiveAnalyses { get; set; } = null!; 
     }
 }

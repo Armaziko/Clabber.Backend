@@ -24,5 +24,7 @@ namespace SoundPromoMarketplace.Domain.Entities
         public Account Account { get; set; } = null!;
 
         public ICollection<SocialChannel> SocialChannels { get; set; } = null!;
+
+        public ICollection<Collaboration> Collaborations { get; set; } = null!;
     }
 }

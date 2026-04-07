@@ -23,7 +23,11 @@ namespace SoundPromoMarketplace.Domain.Entities
 
         public DateTime LastScrapedAt { get; set; }
 
-        // Navigation property
+        // Navigation properties
         public CreatorProfile CreatorProfile { get; set; } = null!;
+        public ICollection<Collaboration> Collaborations { get; set; }
+        public ICollection<CreatorMetricsHistory> CreatorMetricsHistories { get; set; }
+
+        public ICollection<PredictiveAnalysis> PredictiveAnalyses { get; set; }
     }
 }

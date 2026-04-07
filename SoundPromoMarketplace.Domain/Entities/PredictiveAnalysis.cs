@@ -29,6 +29,6 @@ namespace SoundPromoMarketplace.Domain.Entities
 
         public SocialChannel SocialChannel { get; set; } = null!;
 
-        public AudioTrack AuditoTrack { get; set; } = null!;
+        public AudioTrack AudioTrack { get; set; } = null!;
     }
 }

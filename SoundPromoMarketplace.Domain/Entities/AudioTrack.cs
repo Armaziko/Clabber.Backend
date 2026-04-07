@@ -22,5 +22,8 @@ namespace SoundPromoMarketplace.Domain.Entities
 
         // Navigation properties
         public BuyerProfile Buyer { get; set; } = null!;
+
+        public ICollection<PredictiveAnalysis> PredictiveAnalyses { get; set; } = new List<PredictiveAnalysis>();
+        public ICollection<Campaign> Campaigns { get; set; } = new List<Campaign>();
     }
 }
