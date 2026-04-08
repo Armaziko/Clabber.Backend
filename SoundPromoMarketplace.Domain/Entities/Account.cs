@@ -1,16 +1,10 @@
-﻿using SoundPromoMarketplace.Domain.Enums;
-using SoundPromoMarketplace.Domain.Generics;
+﻿using Microsoft.AspNetCore.Identity;
+using SoundPromoMarketplace.Domain.Enums;
 
 namespace SoundPromoMarketplace.Domain.Entities
 {
-    public class Account : AggregateRoot
+    public class Account : IdentityUser<Guid>
     {
-        public Account(Guid id) : base(id)
-        {
-        }
-
-        public string Email { get; private set; } = string.Empty;
-        public string PasswordHash { get; set; } = string.Empty;
         public AccountRole Role { get; set; }
 
         public DateTime CreatedAt { get; set;  }
