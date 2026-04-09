@@ -1,9 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SoundPromoMarketplace.Domain.Entities;
 
 namespace SoundPromoMarketplace.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<Account, IdentityRole<Guid>, Guid>
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
@@ -20,10 +22,10 @@ namespace SoundPromoMarketplace.Infrastructure.Persistence
         public DbSet<CreatorMetricsHistory> CreatorMetricsHistories { get; set; }
         public DbSet<PredictiveAnalysis> PredictiveAnalyses { get; set; }
  
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+            base.OnModelCreating(builder);
+            builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         }
     }
 }

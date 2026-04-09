@@ -8,7 +8,7 @@ namespace SoundPromoMarketplace.Infrastructure.Persistence.Configurations
     {
         public void Configure(EntityTypeBuilder<Account> builder)
         {
-            builder.HasKey(account => account.Id);
+            // Identity already creates and identifies a primary key, so no need for .HasKey() stuff
 
             builder.HasIndex(acc => acc.Email).IsUnique();
 

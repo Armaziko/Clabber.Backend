@@ -1,4 +1,6 @@
-﻿namespace SoundPromoMarketplace.Api.Cors
+﻿using SoundPromoMarketplace.Api.Cors;
+
+namespace SoundPromoMarketplace.Api.Extensions
 {
     public static class CorsExtensions
     {

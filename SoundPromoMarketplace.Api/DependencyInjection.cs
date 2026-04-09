@@ -1,4 +1,4 @@
-﻿using SoundPromoMarketplace.Api.Cors;
+﻿using SoundPromoMarketplace.Api.Extensions;
 
 namespace SoundPromoMarketplace.Api
 {
@@ -7,6 +7,7 @@ namespace SoundPromoMarketplace.Api
         public static void SetupApi(this IHostApplicationBuilder builder)
         {
             builder.SetupCors();
+            builder.SetUpIdentity();
         }
     }
 }
