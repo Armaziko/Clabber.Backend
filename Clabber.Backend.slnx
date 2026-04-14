@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Clabber.Backend.Api/Clabber.Backend.Api.csproj" />
+  <Project Path="Clabber.Backend.Application/Clabber.Backend.Application.csproj" />
+  <Project Path="Clabber.Backend.Domain/Clabber.Backend.Domain.csproj" />
+  <Project Path="Clabber.Backend.Infrastructure/Clabber.Backend.Infrastructure.csproj" />
+</Solution>
