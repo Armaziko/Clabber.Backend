@@ -2,7 +2,9 @@
 {
     public enum AccountRole
     {
+        None = 0,
         Buyer = 1,
-        Creator = 2
+        Creator = 2,
+        Both = 3,
     }
 }

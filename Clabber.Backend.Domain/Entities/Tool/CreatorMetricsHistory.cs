@@ -1,6 +1,7 @@
-﻿using Clabber.Backend.Domain.Generics;
+﻿using Clabber.Backend.Domain.Entities.Profiles;
+using Clabber.Backend.Domain.Generics;
 
-namespace Clabber.Backend.Domain.Entities
+namespace Clabber.Backend.Domain.Entities.Tool
 {
     public class CreatorMetricsHistory : BaseEntity
     {

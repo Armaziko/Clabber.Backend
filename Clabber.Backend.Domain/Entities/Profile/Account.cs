@@ -1,7 +1,8 @@
-﻿using Clabber.Backend.Domain.Enums;
+﻿using Clabber.Backend.Domain.Entities.Profiles;
+using Clabber.Backend.Domain.Enums;
 using Microsoft.AspNetCore.Identity;
 
-namespace Clabber.Backend.Domain.Entities
+namespace Clabber.Backend.Domain.Entities.Profile
 {
     public class Account : IdentityUser<Guid>
     {
@@ -13,7 +14,7 @@ namespace Clabber.Backend.Domain.Entities
 
         // Navigation properties
 
-        public BuyerProfile? BuyerProfile { get; set; }
+        public SponsorProfile? SponsorProfile { get; set; }
 
         public CreatorProfile? CreatorProfile { get; set; }
     }
