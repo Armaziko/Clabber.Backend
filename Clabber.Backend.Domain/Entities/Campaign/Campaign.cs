@@ -19,11 +19,8 @@ namespace Clabber.Backend.Domain.Entities.Campaign
         public bool IsDeleted { get; set; }
 
         // Navigation properties
-
         public SponsorProfile Sponsor { get; set; } = null!;
-
         public PromotedProduct PromotedProduct { get; set; } = default!;
-
         public ICollection<Sponsorship> Sponsorships { get; set; } = null!;
     }
 }

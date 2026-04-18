@@ -1,4 +1,5 @@
 ﻿using Clabber.Backend.Domain.Entities.Profiles;
+using Clabber.Backend.Domain.Entities.Transactions;
 using Clabber.Backend.Domain.Enums;
 using Clabber.Backend.Domain.Generics;
 
@@ -24,9 +25,8 @@ namespace Clabber.Backend.Domain.Entities.Campaign
 
         // Navigation properties
         public Campaign Campaign { get; set; } = null!;
-
         public SocialChannel SocialChannel { get; set; } = null!;
-        
         public CreatorProfile CreatorProfile { get; set; } = null!;
+        public ICollection<EscrowTransaction>? Transactions { get; set; } = default!;
     }
 }
