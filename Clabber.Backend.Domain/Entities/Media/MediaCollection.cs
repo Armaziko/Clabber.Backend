@@ -14,6 +14,6 @@ namespace Clabber.Backend.Domain.Entities.Media
 
         // Navigation properties
 
-        ICollection<MediaCollectionItem> MediaCollectionItems { get; set; } = default!;
+        public ICollection<MediaCollectionItem> MediaCollectionItems { get; set; } = new List<MediaCollectionItem>();
     }
 }

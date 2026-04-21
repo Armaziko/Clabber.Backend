@@ -1,4 +1,4 @@
-﻿using Clabber.Backend.Domain.Entities;
+﻿using Clabber.Backend.Domain.Entities.Tool;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -18,7 +18,7 @@ namespace Clabber.Backend.Infrastructure.Persistence.Configurations
 
             builder.Property(c => c.SharesMedian).IsRequired();
 
-            builder.Property(c => c.SaveRate).IsRequired().HasPrecision(5, 4);
+            builder.Property(c => c.SaveRate).IsRequired().HasPrecision(5, 2);
         }
     }
 }

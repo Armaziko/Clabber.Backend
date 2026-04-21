@@ -13,6 +13,9 @@ namespace Clabber.Backend.Domain.Entities.Profile
         public VerificationStatus Status { get; set; }
         public DateTime CreatedAt { get; set; } 
         public DateTime LastUpdatedAt { get; set; }
-        public bool IsDeleted { get; set; } 
+
+        // Navigation property
+
+        public Account Account { get; set; } = default!;
     }
 }

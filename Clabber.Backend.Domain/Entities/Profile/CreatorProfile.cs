@@ -12,8 +12,6 @@ namespace Clabber.Backend.Domain.Entities.Profiles
 
         public Guid AccountId { get; set; }
 
-        public string DisplayName { get; set; } = string.Empty;
-
         public string Bio { get; set; } = string.Empty; 
 
         public string MainGenre { get; set; } = string.Empty;
@@ -27,8 +25,9 @@ namespace Clabber.Backend.Domain.Entities.Profiles
         // Navigation properties
         public Account Account { get; set; } = null!;
 
-        public ICollection<SocialChannel> SocialChannels { get; set; } = null!;
-
-        public ICollection<Sponsorship> Sponsorships { get; set; } = null!;
+        public ICollection<SocialChannel> SocialChannels { get; set; } = new List<SocialChannel>();
+        public ICollection<Sponsorship> Sponsorships { get; set; } = new List<Sponsorship>();
+        public ICollection<Friendship> SentFriendRequests { get; set; } = new List<Friendship>();
+        public ICollection<Friendship> ReceivedFriendRequests { get; set; } = new List<Friendship>();
     }
 }

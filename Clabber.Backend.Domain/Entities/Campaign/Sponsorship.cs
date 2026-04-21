@@ -1,4 +1,5 @@
-﻿using Clabber.Backend.Domain.Entities.Profiles;
+﻿using Clabber.Backend.Domain.Entities.Legal;
+using Clabber.Backend.Domain.Entities.Profiles;
 using Clabber.Backend.Domain.Entities.Transactions;
 using Clabber.Backend.Domain.Enums;
 using Clabber.Backend.Domain.Generics;
@@ -16,7 +17,7 @@ namespace Clabber.Backend.Domain.Entities.Campaign
         public Guid ChannelId { get; set; }
         public decimal AgreedPrice { get; set; }
         public CollaborationStatus Status { get; set; } 
-        public string TrackingLink { get; set; } = string.Empty;
+        public string TrackingLink { get; set; } = string.Empty; // Represents an unique redirected URL to track sales.
         public decimal MilestoneBonus { get; set; }
         public int TargetMetricGoal { get; set; }
         public int ActualMetricAchieved { get; set; }
@@ -27,6 +28,8 @@ namespace Clabber.Backend.Domain.Entities.Campaign
         public Campaign Campaign { get; set; } = null!;
         public SocialChannel SocialChannel { get; set; } = null!;
         public CreatorProfile CreatorProfile { get; set; } = null!;
-        public ICollection<EscrowTransaction>? Transactions { get; set; } = default!;
+        public ICollection<EscrowTransaction>? Transactions { get; set; } = new List<EscrowTransaction>();
+        public ICollection<Deliverables> Deliverables { get; set; } = new List<Deliverables>();
+        public ICollection<LegalLicenses> LegalLicenses { get; set; } = new List<LegalLicenses>();
     }
 }

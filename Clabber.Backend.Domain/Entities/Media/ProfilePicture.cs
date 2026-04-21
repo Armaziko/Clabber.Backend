@@ -1,4 +1,5 @@
-﻿using Clabber.Backend.Domain.Generics;
+﻿using Clabber.Backend.Domain.Entities.Profile;
+using Clabber.Backend.Domain.Generics;
 
 namespace Clabber.Backend.Domain.Entities.Media
 {
@@ -14,6 +15,8 @@ namespace Clabber.Backend.Domain.Entities.Media
 
         public bool IsDeleted { get; set; }
 
+        // Navigation properties
+        public Account Account { get; set; } = default!; 
         public UploadedMedia UploadedMedia { get; set; } = default!;
     }
 }

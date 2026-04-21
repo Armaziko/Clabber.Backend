@@ -9,14 +9,18 @@ namespace Clabber.Backend.Domain.Entities.Profiles
         {
         }
 
-        public Guid RequesterId { get; set; }
+        public Guid RequesterId { get; set; } // Represents an ID of a content creator's profile only.
 
-        public Guid ReceiverId { get; set; }
+        public Guid ReceiverId { get; set; } // Represents an ID of a content creator's profile only.
 
         public FriendshipStatus Status { get; set; }
 
         public DateTime CreatedAt { get; set; } 
 
         public bool IsDeleted { get; set; }
+
+        // Navigation properties
+        public CreatorProfile RequesterCreator { get; set; } = default!;
+        public CreatorProfile ReceiverCreator { get; set; } = default!;
     }
 }

@@ -1,4 +1,4 @@
-﻿using Clabber.Backend.Domain.Entities;
+﻿using Clabber.Backend.Domain.Entities.Tool;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

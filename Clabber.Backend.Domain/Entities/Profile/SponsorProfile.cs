@@ -1,4 +1,5 @@
-﻿using Clabber.Backend.Domain.Entities.Media;
+﻿using Clabber.Backend.Domain.Entities.Campaign;
+using Clabber.Backend.Domain.Entities.Media;
 using Clabber.Backend.Domain.Entities.Profile;
 using Clabber.Backend.Domain.Entities.Tool;
 using Clabber.Backend.Domain.Generics;
@@ -19,11 +20,8 @@ namespace Clabber.Backend.Domain.Entities.Profiles
         // Navigation properties
 
         public Account Account { get; set; } = null!;
-
-        public ICollection<Campaign> Campaigns { get; set; } = null!;
-
-        public ICollection<UploadedMedia> AudioTracks { get; set; } = null!;
-
+        public ICollection<PromotedProduct> PromotedProducts { get; set; } = new List<PromotedProduct>();
+        public ICollection<Clabber.Backend.Domain.Entities.Campaign.Campaign> Campaigns { get; set; } = null!;
         public ICollection<PredictiveAnalysis> PredictiveAnalyses { get; set; } = null!; 
     }
 }

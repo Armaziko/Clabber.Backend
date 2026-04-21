@@ -1,4 +1,4 @@
-﻿using Clabber.Backend.Domain.Entities;
+﻿using Clabber.Backend.Domain.Entities.Profiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -16,8 +16,9 @@ namespace Clabber.Backend.Infrastructure.Persistence.Configurations
             builder.Property(sc => sc.Platform).IsRequired();
             builder.Property(sc => sc.Handle).IsRequired().HasMaxLength(32);
             builder.Property(sc => sc.FollowerCount).IsRequired();
-            builder.Property(sc => sc.EngagementRate).IsRequired().HasPrecision(18, 2);
-            builder.Property(sc => sc.LastScrapedAt).IsRequired();
+            builder.Property(sc => sc.EngagementRate).IsRequired().HasPrecision(5, 2);
+            builder.Property(sc => sc.GeneralGenre).IsRequired().HasMaxLength(32);
+            builder.Property(sc => sc.LastScrapedAt).IsRequired(false);
             builder.Property(sc => sc.ExternalId).IsRequired().HasMaxLength(256);
 
             builder.HasMany(sc => sc.CreatorMetricsHistories)
@@ -25,7 +26,7 @@ namespace Clabber.Backend.Infrastructure.Persistence.Configurations
                 .HasForeignKey(cmh => cmh.ChannelId)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder.HasMany(sc => sc.Collaborations)
+            builder.HasMany(sc => sc.Sponsorships)
                 .WithOne(co => co.SocialChannel)
                 .HasForeignKey(co => co.ChannelId)
                 .OnDelete(DeleteBehavior.Restrict);
@@ -34,6 +35,8 @@ namespace Clabber.Backend.Infrastructure.Persistence.Configurations
                 .WithOne(pa => pa.SocialChannel)
                 .HasForeignKey(pa => pa.ChannelId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasQueryFilter(acc => !acc.IsDeleted);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Clabber.Backend.Domain.Entities;
+﻿using Clabber.Backend.Domain.Entities.Profile;
 using Clabber.Backend.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Identity;
 

@@ -10,5 +10,10 @@ namespace Clabber.Backend.Domain.Entities.Media
 
         public Guid MediaCollectionId { get; set; }
         public Guid UploadedMediaId { get; set; }
+
+        // Navigation properties
+
+        public MediaCollection MediaCollection { get; set; } = default!;
+        public UploadedMedia UploadedMedia { get; set; } = default!;
     }
 }

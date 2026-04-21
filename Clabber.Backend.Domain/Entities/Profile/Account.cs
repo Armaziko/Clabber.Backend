@@ -1,4 +1,5 @@
-﻿using Clabber.Backend.Domain.Entities.Profiles;
+﻿using Clabber.Backend.Domain.Entities.Media;
+using Clabber.Backend.Domain.Entities.Profiles;
 using Clabber.Backend.Domain.Enums;
 using Microsoft.AspNetCore.Identity;
 
@@ -6,6 +7,7 @@ namespace Clabber.Backend.Domain.Entities.Profile
 {
     public class Account : IdentityUser<Guid>
     {
+        public string DisplayName { get; set; } = string.Empty;
         public AccountRole Role { get; set; }
 
         public DateTime CreatedAt { get; set;  }
@@ -14,8 +16,10 @@ namespace Clabber.Backend.Domain.Entities.Profile
 
         // Navigation properties
 
+        public ICollection<UploadedMedia>? UploadedMedias { get; set; } = default!;
+        public Verification? Verification { get; set; } = default!;
         public SponsorProfile? SponsorProfile { get; set; }
-
         public CreatorProfile? CreatorProfile { get; set; }
+        public ProfilePicture ProfilePicture { get; set; } = default!;
     }
 }

@@ -10,7 +10,7 @@ namespace Clabber.Backend.Domain.Entities.Campaign
         {
         }
         public Guid SponsorId { get; set; }
-        public Guid MediaCollectionId { get; set; }
+        public Guid? MediaCollectionId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public string Category {  get; set; } = string.Empty;
@@ -20,7 +20,7 @@ namespace Clabber.Backend.Domain.Entities.Campaign
         public bool IsDeleted { get; set; }
 
         // Navigation properties
-        public SponsorProfile Profile { get; set; } = default!;
-        public MediaCollection MediaCollection { get; set; } = default!;
+        public SponsorProfile SponsorProfile { get; set; } = default!;
+        public MediaCollection? MediaCollection { get; set; } = default!;
     }
 }
