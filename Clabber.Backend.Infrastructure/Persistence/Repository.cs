@@ -23,7 +23,7 @@ namespace Clabber.Backend.Infrastructure.Persistence
             _dbSet.AddRange(items);
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public async Task<IReadOnlyList<T>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
         }
