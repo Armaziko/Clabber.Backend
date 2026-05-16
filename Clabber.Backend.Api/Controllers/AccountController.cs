@@ -27,7 +27,7 @@ namespace Clabber.Backend.Api.Controllers
             var getAllResult = await this.mediator.Send(query);
             return this.ToActionResult(getAllResult);
         }
-        [HttpGet("{id}")]
+        [HttpGet("{id:string}")]
         public async Task<IActionResult> GetById([FromRoute] GetAccountByIdQuery query)
         {
             var getByIdResult = await this.mediator.Send(query);
@@ -45,7 +45,7 @@ namespace Clabber.Backend.Api.Controllers
             var updateResult = await this.mediator.Send(command);
             return this.ToActionResult(updateResult);
         }
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteById([FromRoute] Guid id)
         {
             var command = new DeleteAccountCommand() { Id = id };
