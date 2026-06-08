@@ -11,10 +11,9 @@ namespace Clabber.Backend.Infrastructure.Persistence.Configurations
         {
             builder.HasKey(x => x.Id);
 
-            builder.Property(co => co.AgreedPrice).IsRequired(false);
             builder.Property(co => co.Status).IsRequired().HasDefaultValue(CollaborationStatus.Requested);
             builder.Property(co => co.TrackingLink).IsRequired(false);
-            builder.Property(co => co.MilestoneBonus).IsRequired(true);
+            builder.Property(co => co.MilestoneBonus).HasPrecision(18,4).IsRequired(true);
             builder.Property(co => co.TargetMetricGoal).IsRequired(true);
             builder.Property(co => co.ActualMetricAchieved).IsRequired(true);
 
