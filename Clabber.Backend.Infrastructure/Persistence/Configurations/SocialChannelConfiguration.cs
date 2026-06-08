@@ -18,7 +18,6 @@ namespace Clabber.Backend.Infrastructure.Persistence.Configurations
             builder.Property(sc => sc.FollowerCount).IsRequired();
             builder.Property(sc => sc.EngagementRate).IsRequired().HasPrecision(5, 2);
             builder.Property(sc => sc.GeneralGenre).IsRequired().HasMaxLength(32);
-            builder.Property(sc => sc.LastScrapedAt).IsRequired(false);
             builder.Property(sc => sc.ExternalId).IsRequired().HasMaxLength(256);
 
             builder.HasMany(sc => sc.CreatorMetricsHistories)
