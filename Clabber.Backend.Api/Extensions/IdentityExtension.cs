@@ -9,7 +9,7 @@ namespace Clabber.Backend.Api.Extensions
         public static void SetUpIdentity(this IHostApplicationBuilder builder)
         {
             builder.Services.AddIdentity<Account, IdentityRole<Guid>>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddEntityFrameworkStores<AccountDbContext>()
                 .AddDefaultTokenProviders();
         }
     }

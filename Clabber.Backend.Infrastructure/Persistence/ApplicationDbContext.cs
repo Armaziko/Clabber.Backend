@@ -7,19 +7,17 @@ using Clabber.Backend.Domain.Entities.Profiles;
 using Clabber.Backend.Domain.Entities.Tool;
 using Clabber.Backend.Domain.Entities.Transactions;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Clabber.Backend.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<Account, IdentityRole<Guid>, Guid>
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }
 
         // Profile group
-        public DbSet<Account> Accounts { get; set; }
         public DbSet<SponsorProfile> SponsorProfiles { get; set; }
         public DbSet<CreatorProfile> CreatorProfiles { get; set; }
         public DbSet<SocialChannel> SocialChannels { get; set; }
