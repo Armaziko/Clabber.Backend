@@ -6,7 +6,6 @@ using Clabber.Backend.Domain.Entities.Profile;
 using Clabber.Backend.Domain.Entities.Profiles;
 using Clabber.Backend.Domain.Entities.Tool;
 using Clabber.Backend.Domain.Entities.Transactions;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Clabber.Backend.Infrastructure.Persistence
@@ -51,10 +50,10 @@ namespace Clabber.Backend.Infrastructure.Persistence
         // Transaction group
         public DbSet<EscrowTransaction> EscrowTransactions { get; set; }
  
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(builder);
-            builder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
         }
     }
 }
