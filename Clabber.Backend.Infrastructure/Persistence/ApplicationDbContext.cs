@@ -6,13 +6,15 @@ using Clabber.Backend.Domain.Entities.Profile;
 using Clabber.Backend.Domain.Entities.Profiles;
 using Clabber.Backend.Domain.Entities.Tool;
 using Clabber.Backend.Domain.Entities.Transactions;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Clabber.Backend.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<Account, IdentityRole<Guid>, Guid>
     {
-        public ApplicationDbContext(DbContextOptions options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
 
