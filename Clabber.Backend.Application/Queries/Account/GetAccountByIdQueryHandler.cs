@@ -1,4 +1,4 @@
-﻿using Clabber.Backend.Application.DTOs.Account;
+﻿using Clabber.Backend.Application.DTOs.ResponseDTOs.Account;
 using Clabber.Backend.Application.Results;
 using MediatR;
 
