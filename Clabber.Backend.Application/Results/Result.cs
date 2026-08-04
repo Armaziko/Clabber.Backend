@@ -29,6 +29,15 @@
         /// Gets or sets the result code that indicates the outcome of the operation.
         /// </summary>
         public OperationStatusCode StatusCode { get; set; }
+        public static Result Successed() => new Result(true, "Operation was successful.", OperationStatusCode.SUCCESS);
+        public static Result Failed() => new Result(false, "Operation was a failure.", OperationStatusCode.FAILED);
+        public static Result Failed(string message) => new Result(false, message, OperationStatusCode.FAILED);
+        public static Result Failed(List<string> messages) => new Result(false, messages, OperationStatusCode.FAILED);
+        public static Result ValidationFailed() => new Result(false, "Validation failed.", OperationStatusCode.VALIDATION_FAILED);
+        public static Result ValidationFailed(string message) => new Result(false, message, OperationStatusCode.VALIDATION_FAILED);
+        public static Result ValidationFailed(List<string> messages) => new Result(false, messages, OperationStatusCode.VALIDATION_FAILED);
+        public static Result NotFound() => new Result(false, "Not found.", OperationStatusCode.NOT_FOUND);
+
     }
     /// <summary>
     /// Represents a result of an operation that returns a value of type T
