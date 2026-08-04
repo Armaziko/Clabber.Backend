@@ -1,13 +1,8 @@
-﻿using Clabber.Backend.Application.Results;
+﻿using Clabber.Backend.Application.DTOs.RequestDTOs.Account;
+using Clabber.Backend.Application.Results;
 using MediatR;
 
 namespace Clabber.Backend.Application.Commands.Account
 {
-    public class UpdatePartialAccountCommand : IRequest<Result>
-    {
-        public Guid Id { get; set; }
-        public string? DisplayName { get; set; }
-        public string? Password { get; set; }
-        public string? Mail { get; set; }
-    }
+    public record UpdatePartialAccountCommand(PartialUpdateAccountDto Model) : IRequest<Result>;
 }

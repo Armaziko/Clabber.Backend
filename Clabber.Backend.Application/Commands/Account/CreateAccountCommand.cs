@@ -1,12 +1,8 @@
-﻿using Clabber.Backend.Application.Results;
+﻿using Clabber.Backend.Application.DTOs.RequestDTOs.Account;
+using Clabber.Backend.Application.Results;
 using MediatR;
 
 namespace Clabber.Backend.Application.Commands.Account
 {
-    public class CreateAccountCommand : IRequest<Result>
-    {
-        public string DisplayName { get; set; } = string.Empty;
-        public string Mail { get; set; } = string.Empty;
-        public string Password { get; set; } = string.Empty;
-    }
+    public record CreateAccountCommand(CreateAccountDto Model) : IRequest<Result>;
 }
