@@ -1,4 +1,5 @@
 ﻿using Clabber.Backend.Application.Abstractions;
+using Clabber.Backend.Application.Specification;
 using Microsoft.EntityFrameworkCore;
 
 namespace Clabber.Backend.Infrastructure.Persistence
@@ -23,14 +24,18 @@ namespace Clabber.Backend.Infrastructure.Persistence
             _dbSet.AddRange(items);
         }
 
-        public async Task<IReadOnlyList<T>> GetAllAsync()
+        public async Task<IReadOnlyList<T>> GetAllAsync(ISpecification<T>? specification = null)
         {
-            return await _dbSet.ToListAsync();
+            IQueryable<T> query = _dbSet;
+            query = SpecificationEvaluator.GetQuery(query, specification);
+            return await query.ToListAsync();
         }
 
-        public async Task<T?> GetByIdAsync(Guid id)
+        public async Task<T?> GetByIdAsync(Guid id, ISpecification<T>? specification = null)
         {
-            return await _dbSet.FindAsync(id);
+            IQueryable<T> query = _dbSet;
+            query = SpecificationEvaluator.GetQuery(query, specification);
+            return await query.FirstOrDefaultAsync();
         }
 
         public void Remove(T item)
