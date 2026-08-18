@@ -5,8 +5,8 @@
         public void Add(T item);
         public void AddRange(IEnumerable<T> items);
 
-        public Task<T?> GetByIdAsync(Guid id);
-        public Task<IReadOnlyList<T>> GetAllAsync();
+        public Task<T?> GetByIdAsync(Guid id, ISpecification<T>? specification = null);
+        public Task<IReadOnlyList<T>> GetAllAsync(ISpecification<T>? specification = null);
 
         public void Update(T item);
         public void Remove(T item);
