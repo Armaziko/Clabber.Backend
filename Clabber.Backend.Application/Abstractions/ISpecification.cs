@@ -1,0 +1,14 @@
+﻿using System.Linq.Expressions;
+
+namespace Clabber.Backend.Application.Abstractions
+{
+    public interface ISpecification<T>
+    {
+        List<Expression<Func<T, object>>> Includes { get; }
+
+        Expression<Func<T, bool>>? Criteria { get; }
+        bool AsNoTracking { get; }
+        void AddInclude(Expression<Func<T, object>> include);
+        void AsNoTrackingQuery();
+    }
+}
