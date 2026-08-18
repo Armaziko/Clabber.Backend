@@ -1,8 +1,9 @@
-﻿using System.Linq.Expressions;
+﻿using Clabber.Backend.Application.Abstractions;
+using System.Linq.Expressions;
 
 namespace Clabber.Backend.Application.Specification
 {
-    public class Specification<T>
+    public class Specification<T> : ISpecification<T>
     {
         public List<Expression<Func<T, object>>> Includes { get; }
 
