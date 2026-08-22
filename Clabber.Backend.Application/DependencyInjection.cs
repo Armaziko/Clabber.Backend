@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Clabber.Backend.Application.Abstractions;
+using Clabber.Backend.Application.Specification;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace Clabber.Backend.Application
@@ -11,6 +13,8 @@ namespace Clabber.Backend.Application
             {
                 config.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly);
             });
+
+            builder.Services.AddTransient(typeof(ISpecification<>), typeof(Specification<>));
         }
     }
 }
