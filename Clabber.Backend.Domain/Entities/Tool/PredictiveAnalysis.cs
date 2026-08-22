@@ -17,8 +17,6 @@ namespace Clabber.Backend.Domain.Entities.Tool
         public string PredictedViewRange { get; set; } = string.Empty;
         public decimal SuggestedOptimalBid { get; set; }
         public DateTime CreatedAt { get; set; }
-        public bool IsDeleted { get; set; }
-
         // Navigation property
         public SponsorProfile? Sponsor { get; set; } = null!;
         public CreatorProfile? CreatorProfile { get; set; } = null!;
