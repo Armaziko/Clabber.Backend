@@ -362,4 +362,10 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-Migrations
+# Ignore temporary SQLite-specific migrations folder
+**/Migrations/Sqlite/
+
+# SQLite database and transaction logs
+*.db
+*.db-wal
+*.db-shm
