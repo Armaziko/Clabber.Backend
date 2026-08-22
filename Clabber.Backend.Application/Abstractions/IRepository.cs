@@ -7,7 +7,7 @@
 
         public Task<T?> GetByIdAsync(Guid id, ISpecification<T>? specification = null);
         public Task<IReadOnlyList<T>> GetAllAsync(ISpecification<T>? specification = null);
-
+        public Task<IReadOnlyList<T>?> GetPageAsync(int page = 0, int limit = 4, ISpecification<T>? specification = null);
         public void Update(T item);
         public void Remove(T item);
     }
