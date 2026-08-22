@@ -1,5 +1,4 @@
 ﻿using Clabber.Backend.Domain.Entities.Campaign;
-using Clabber.Backend.Domain.Entities.Profile;
 using Clabber.Backend.Domain.Generics;
 
 namespace Clabber.Backend.Domain.Entities.Profiles
@@ -19,11 +18,6 @@ namespace Clabber.Backend.Domain.Entities.Profiles
         public string Country { get; set; } = string.Empty;
 
         public decimal OverallRating { get; set; }
-
-        public bool IsDeleted { get; set; }
-
-        // Navigation properties
-        public Account Account { get; set; } = null!;
 
         public ICollection<SocialChannel> SocialChannels { get; set; } = new List<SocialChannel>();
         public ICollection<Sponsorship> Sponsorships { get; set; } = new List<Sponsorship>();
