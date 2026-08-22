@@ -17,7 +17,5 @@ namespace Clabber.Backend.Domain.Entities.Chat
         public DateTime SentAt { get; set; }
 
         public bool IsRead { get; set; }
-
-        public bool IsDeleted { get; set; }
     }
 }
