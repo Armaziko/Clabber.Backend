@@ -11,7 +11,5 @@ namespace Clabber.Backend.Domain.Entities.Chat
         public bool IsGroup { get; set; }
 
         public DateTime CreatedAt { get; set; }
-
-        public bool IsDeleted { get; set; }
     }
 }
