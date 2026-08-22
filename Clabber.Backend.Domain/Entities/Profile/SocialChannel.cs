@@ -21,8 +21,6 @@ namespace Clabber.Backend.Domain.Entities.Profiles
         public decimal EngagementRate { get; set; }
         public DateTime LastScrapedAt { get; set; }
 
-        public bool IsDeleted { get; set; }
-
         // Navigation properties
         public CreatorProfile CreatorProfile { get; set; } = default!;
         public ProfilePicture ProfilePicture { get; set; } = default!;
