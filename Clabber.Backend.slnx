@@ -3,4 +3,5 @@
   <Project Path="Clabber.Backend.Application/Clabber.Backend.Application.csproj" />
   <Project Path="Clabber.Backend.Domain/Clabber.Backend.Domain.csproj" />
   <Project Path="Clabber.Backend.Infrastructure/Clabber.Backend.Infrastructure.csproj" />
+  <Project Path="Clabber.Backend.Tests/Clabber.Backend.Tests.csproj" />
 </Solution>
