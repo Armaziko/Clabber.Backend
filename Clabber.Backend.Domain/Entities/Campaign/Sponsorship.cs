@@ -22,7 +22,6 @@ namespace Clabber.Backend.Domain.Entities.Campaign
         public int TargetMetricGoal { get; set; }
         public int ActualMetricAchieved { get; set; }
         public DateTime CreatedAt { get; set; }
-        public bool IsDeleted { get; set; }
 
         // Navigation properties
         public Campaign Campaign { get; set; } = null!;
