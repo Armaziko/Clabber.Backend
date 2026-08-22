@@ -1,17 +1,20 @@
 ﻿using Clabber.Backend.Application.Abstractions;
+using Clabber.Backend.Domain.Entities.Profile;
 using System.Collections;
 
 namespace Clabber.Backend.Infrastructure.Persistence
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ApplicationDbContext _appContext;
+        private readonly IdentityDbContext _identityContext;
         private readonly Hashtable _repositories = new();
         private bool _disposed = false;
 
-        public UnitOfWork(ApplicationDbContext context)
+        public UnitOfWork(ApplicationDbContext context, IdentityDbContext identityContext)
         {
-            this._context = context;
+            this._appContext = context;
+            this._identityContext = identityContext;
         }
 
         public IRepository<T> Repository<T>() where T : class
@@ -21,7 +24,9 @@ namespace Clabber.Backend.Infrastructure.Persistence
             if (!_repositories.ContainsKey(type)) 
             {
                 var genericRepoType = typeof(Repository<>);
-                var newRepoInstance = Activator.CreateInstance(genericRepoType.MakeGenericType(typeof(T)), _context);
+                var newRepoInstance = (type == typeof(Account) || type == typeof(Verification))
+                    ? Activator.CreateInstance(genericRepoType.MakeGenericType(type), _identityContext) 
+                    : Activator.CreateInstance(genericRepoType.MakeGenericType(type), _appContext);
                 _repositories.Add(type, newRepoInstance);
             }
 
@@ -30,12 +35,12 @@ namespace Clabber.Backend.Infrastructure.Persistence
 
         public int Commit()
         {
-            return _context.SaveChanges();
+            return _appContext.SaveChanges();
         }
 
         public async Task<int> CommitAsync()
         {
-            return await _context.SaveChangesAsync();
+            return await _appContext.SaveChangesAsync();
         }
 
         protected virtual void Dispose(bool disposing)
@@ -44,7 +49,7 @@ namespace Clabber.Backend.Infrastructure.Persistence
             {
                 if (disposing)
                 {
-                    _context.Dispose();
+                    _appContext.Dispose();
                 }
                 _disposed = true;
             }
