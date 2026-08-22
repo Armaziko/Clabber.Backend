@@ -21,10 +21,5 @@ namespace Clabber.Backend.Domain.Entities.Media
         public decimal SizeMB { get; set; }
 
         public DateTime CreatedAt { get; set; }
-
-        public bool IsDeleted { get; set; }
-
-        // Navigation properties
-        public Account Account { get; set; } = null!;
     }
 }
