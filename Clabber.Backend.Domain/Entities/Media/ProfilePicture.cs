@@ -13,10 +13,6 @@ namespace Clabber.Backend.Domain.Entities.Media
 
         public Guid UploadedMediaId { get; set;  } 
 
-        public bool IsDeleted { get; set; }
-
-        // Navigation properties
-        public Account Account { get; set; } = default!; 
         public UploadedMedia UploadedMedia { get; set; } = default!;
     }
 }
