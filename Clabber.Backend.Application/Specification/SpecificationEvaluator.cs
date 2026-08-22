@@ -25,6 +25,11 @@ namespace Clabber.Backend.Application.Specification
                 }
             }
 
+            if (specification.OrderBy is not null)
+            {
+                query.OrderBy(specification.OrderBy);
+            }
+
             return query;
         }
     }
