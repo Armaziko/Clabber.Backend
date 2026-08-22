@@ -17,7 +17,6 @@ namespace Clabber.Backend.Domain.Entities.Campaign
         public bool IsDigitial { get; set; }
         public string? ExternalUrl { get; set; } = string.Empty;
         public DateTime DateCreated { get; set; }
-        public bool IsDeleted { get; set; }
 
         // Navigation properties
         public SponsorProfile SponsorProfile { get; set; } = default!;
