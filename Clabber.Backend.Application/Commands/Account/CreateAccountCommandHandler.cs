@@ -25,7 +25,7 @@ namespace Clabber.Backend.Application.Commands.Account
             {
                 var newAccount = Domain.Entities.Profile.Account.CreateNew(request.Model.DisplayName, request.Model.Mail);
                 await userManager.CreateAsync(newAccount, request.Model.Password);
-                return Result.Successed();
+                return Result.Success();
             }
             catch (IdentityException ie)
             {
