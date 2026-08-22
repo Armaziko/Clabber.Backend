@@ -10,6 +10,7 @@ namespace Clabber.Backend.Application.Abstractions
         Expression<Func<T, object>>? OrderBy { get; }
         bool AsNoTracking { get; }
         void AddInclude(Expression<Func<T, object>> include);
+        void AddOrderBy(Expression<Func<T, object>> orderBy); 
         void AsNoTrackingQuery();
     }
 }
