@@ -12,6 +12,8 @@ namespace Clabber.Backend.Infrastructure.Persistence.Configurations
 
             builder.Property(d => d.S3Url).IsRequired(false);
             builder.Property(d => d.Status).IsRequired();
+
+            builder.HasQueryFilter(x => !x.IsDeleted);
         }
     }
 }

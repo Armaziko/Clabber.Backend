@@ -19,6 +19,8 @@ namespace Clabber.Backend.Infrastructure.Persistence.Configurations
             builder.Property(pa => pa.SuggestedOptimalBid).IsRequired().HasPrecision(18,2);
 
             builder.Property(pa => pa.CreatedAt).IsRequired();
+
+            builder.HasQueryFilter(x => !x.IsDeleted);
         }
     }
 }

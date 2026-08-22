@@ -9,6 +9,8 @@ namespace Clabber.Backend.Infrastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<MediaCollectionItem> builder)
         {
             builder.HasKey(x => x.Id);
+
+            builder.HasQueryFilter(mc => !mc.IsDeleted);
         }
     }
 }

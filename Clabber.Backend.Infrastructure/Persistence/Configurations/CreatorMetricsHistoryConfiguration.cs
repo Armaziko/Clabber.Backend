@@ -19,6 +19,8 @@ namespace Clabber.Backend.Infrastructure.Persistence.Configurations
             builder.Property(c => c.SharesMedian).IsRequired();
 
             builder.Property(c => c.SaveRate).IsRequired().HasPrecision(5, 2);
+
+            builder.HasQueryFilter(x => !x.IsDeleted);
         }
     }
 }

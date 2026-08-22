@@ -12,6 +12,8 @@ namespace Clabber.Backend.Infrastructure.Persistence.Configurations
 
             builder.Property(x => x.LicenseText).IsRequired();
             builder.Property(x => x.DigitalSignature).IsRequired();
+
+            builder.HasQueryFilter(x => !x.IsDeleted);
         }
     }
 }
