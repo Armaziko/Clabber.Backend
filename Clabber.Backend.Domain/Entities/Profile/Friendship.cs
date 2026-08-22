@@ -17,8 +17,6 @@ namespace Clabber.Backend.Domain.Entities.Profiles
 
         public DateTime CreatedAt { get; set; } 
 
-        public bool IsDeleted { get; set; }
-
         // Navigation properties
         public CreatorProfile RequesterCreator { get; set; } = default!;
         public CreatorProfile ReceiverCreator { get; set; } = default!;
