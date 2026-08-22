@@ -2,19 +2,17 @@
 using Clabber.Backend.Domain.Entities.Chat;
 using Clabber.Backend.Domain.Entities.Legal;
 using Clabber.Backend.Domain.Entities.Media;
-using Clabber.Backend.Domain.Entities.Profile;
 using Clabber.Backend.Domain.Entities.Profiles;
 using Clabber.Backend.Domain.Entities.Tool;
 using Clabber.Backend.Domain.Entities.Transactions;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Clabber.Backend.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : IdentityDbContext<Account, IdentityRole<Guid>, Guid>
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
+            : base(options)
         {
         }
 
@@ -23,7 +21,6 @@ namespace Clabber.Backend.Infrastructure.Persistence
         public DbSet<CreatorProfile> CreatorProfiles { get; set; }
         public DbSet<SocialChannel> SocialChannels { get; set; }
         public DbSet<Friendship> Friendships { get; set; }
-        public DbSet<Verification> Verifications { get; set; }
 
         // Chat group
         public DbSet<Chat> Chats { get; set; }
