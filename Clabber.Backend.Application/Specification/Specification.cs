@@ -11,6 +11,8 @@ namespace Clabber.Backend.Application.Specification
 
         public bool AsNoTracking { get; private set; } = false;
 
+        public Expression<Func<T, object>>? OrderBy { get; private set; }
+
         public Specification(Expression<Func<T, bool>>? criteria = null)
         {
             this.Criteria = criteria;
@@ -19,7 +21,12 @@ namespace Clabber.Backend.Application.Specification
 
         public void AddInclude(Expression<Func<T, object>> include)
         {
-            this.Includes.Add(include);
+               this.Includes.Add(include);
+        }
+
+        public void AddOrderBy(Expression<Func<T, object>> orderBy)
+        {
+            this.OrderBy = orderBy;
         }
 
         public void AsNoTrackingQuery()
