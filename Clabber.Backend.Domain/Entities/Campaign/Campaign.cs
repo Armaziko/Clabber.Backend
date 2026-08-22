@@ -16,7 +16,6 @@ namespace Clabber.Backend.Domain.Entities.Campaign
         public CampaignType Type { get; set; }
         public CampaignStatus Status { get; set; }
         public DateTime StartDate { get; set; }
-        public bool IsDeleted { get; set; }
 
         // Navigation properties
         public SponsorProfile OwnnerSponsor { get; set; } = null!;
