@@ -17,8 +17,6 @@ namespace Clabber.Backend.Domain.Entities.Transactions
         public string ProcessingProvider { get; set; } = string.Empty;
         public string ProviderTransactionId { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
-        public bool IsDeleted { get; set; }
-
         // Navigation properties
         public Sponsorship Sponsorship { get; set; } = default!;
     }
