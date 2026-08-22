@@ -15,7 +15,6 @@ namespace Clabber.Backend.Domain.Entities.Profile
         public DateTime LastUpdatedAt { get; set; }
 
         // Navigation property
-
         public Account Account { get; set; } = default!;
     }
 }
