@@ -10,7 +10,5 @@ namespace Clabber.Backend.Domain.Entities.Chat
         
         public Guid ChatId { get; set; }
         public Guid AccountId { get; set; }
-
-        public bool IsDeleted { get; set; }
     }
 }
