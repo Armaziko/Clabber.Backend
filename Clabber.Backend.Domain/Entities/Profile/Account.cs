@@ -1,6 +1,4 @@
-﻿using Clabber.Backend.Domain.Entities.Media;
-using Clabber.Backend.Domain.Entities.Profiles;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace Clabber.Backend.Domain.Entities.Profile
 {
@@ -11,11 +9,18 @@ namespace Clabber.Backend.Domain.Entities.Profile
         public bool IsDeleted { get; set; }
 
         // Navigation properties
-
-        public ICollection<UploadedMedia>? UploadedMedias { get; set; } = default!;
         public Verification? Verification { get; set; } = default!;
-        public SponsorProfile? SponsorProfile { get; set; }
-        public CreatorProfile? CreatorProfile { get; set; }
-        public ProfilePicture ProfilePicture { get; set; } = default!;
+
+        public static Account CreateNew(string displayName, string email)
+        {
+            return new Account()
+            {
+                Id = Guid.NewGuid(),
+                Email = email,
+                DisplayName = displayName,
+                CreatedAt = DateTime.UtcNow,
+                IsDeleted = false
+            };
+        }
     }
 }
