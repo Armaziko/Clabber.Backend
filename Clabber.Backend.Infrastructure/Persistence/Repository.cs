@@ -6,13 +6,19 @@ namespace Clabber.Backend.Infrastructure.Persistence
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly ApplicationDbContext _dbContext;
+        protected readonly ApplicationDbContext? _dbContext;
+        protected readonly IdentityDbContext? _identityContext;
         private readonly DbSet<T> _dbSet;
 
         public Repository(ApplicationDbContext dbContext)
         {
             this._dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
             this._dbSet = dbContext.Set<T>();
+        }
+        public Repository(IdentityDbContext identityContext)
+        {
+            this._identityContext = identityContext ?? throw new ArgumentNullException(nameof(identityContext));
+            this._dbSet = identityContext.Set<T>();
         }
         public void Add(T item)
         {
@@ -36,6 +42,17 @@ namespace Clabber.Backend.Infrastructure.Persistence
             IQueryable<T> query = _dbSet;
             query = SpecificationEvaluator.GetQuery(query, specification);
             return await query.FirstOrDefaultAsync();
+        }
+
+        public async Task<IReadOnlyList<T>?> GetPageAsync(int page = 0, int limit = 8, ISpecification<T>? specification = null)
+        {
+            if (page < 0 || limit <= 0)
+                return null;
+
+            IQueryable<T> query = _dbSet;
+            query = SpecificationEvaluator.GetQuery(query, specification).Skip(page*limit).Take(limit);
+            IReadOnlyList<T>? list = await query.ToListAsync();
+            return list;
         }
 
         public void Remove(T item)
