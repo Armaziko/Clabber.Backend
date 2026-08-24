@@ -5,7 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 
-namespace Clabber.Backend.Application.Commands.Account
+namespace Clabber.Backend.Application.CQRS.Commands.Account
 {
     public class CreateAccountCommandHandler : IRequestHandler<CreateAccountCommand, Result>
     {
