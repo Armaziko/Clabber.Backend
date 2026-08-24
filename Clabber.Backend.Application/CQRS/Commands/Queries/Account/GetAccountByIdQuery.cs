@@ -2,7 +2,7 @@
 using Clabber.Backend.Application.Results;
 using MediatR;
 
-namespace Clabber.Backend.Application.Queries.Account
+namespace Clabber.Backend.Application.CQRS.Commands.Queries.Account
 {
     public class GetAccountByIdQuery : IRequest<Result<AccountDto>>
     {

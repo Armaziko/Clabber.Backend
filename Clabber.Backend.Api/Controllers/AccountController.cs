@@ -1,7 +1,7 @@
 ﻿using Clabber.Backend.Api.Extensions;
 using Clabber.Backend.Application.Commands.Account;
+using Clabber.Backend.Application.CQRS.Commands.Queries.Account;
 using Clabber.Backend.Application.DTOs.RequestDTOs.Account;
-using Clabber.Backend.Application.Queries.Account;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

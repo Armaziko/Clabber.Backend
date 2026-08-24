@@ -5,7 +5,7 @@ using DomainAccount = Clabber.Backend.Domain.Entities.Profile.Account;
 using MediatR;
 using Clabber.Backend.Application.Specification;
 
-namespace Clabber.Backend.Application.Queries.Account
+namespace Clabber.Backend.Application.CQRS.Commands.Queries.Account
 {
     public class GetAccountPageQueryHandler : IRequestHandler<GetAccountPageQuery, Result<IReadOnlyList<AccountDto>>>
     {

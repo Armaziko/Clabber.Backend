@@ -5,7 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Identity;
 using DomainAccount = Clabber.Backend.Domain.Entities.Profile.Account;
 
-namespace Clabber.Backend.Application.Queries.Account
+namespace Clabber.Backend.Application.CQRS.Commands.Queries.Account
 {
     public class GetAccountByIdQueryHandler : IRequestHandler<GetAccountByIdQuery, Result<AccountDto>>
     {
