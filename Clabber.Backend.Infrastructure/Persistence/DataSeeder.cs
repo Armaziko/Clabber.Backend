@@ -32,7 +32,7 @@ namespace Clabber.Backend.Infrastructure.Persistence
             await appContext.Database.MigrateAsync();
             await identityContext.Database.MigrateAsync();
 
-            if (identityContext.Users.Any()) return; // already seeded
+            if (await identityContext.Users.AnyAsync()) return; // already seeded
 
             // Roles
             var roles = new[] { "Admin", "Sponsor", "Creator" };
@@ -43,11 +43,11 @@ namespace Clabber.Backend.Infrastructure.Persistence
             }
 
             // Create accounts
-            var sponsorAccount = Account.CreateNew("Acme Sponsor", "sponsor@acme.test");
+            var sponsorAccount = Account.CreateNew("Acme Sponsor", "acmespon", "sponsor@acme.test");
             sponsorAccount.UserName = "sponsor@acme.test";
-            var creatorAccount = Account.CreateNew("Jane Creator", "jane.creator@test.local");
+            var creatorAccount = Account.CreateNew("Jane Creator", "littlefinger", "jane.creator@test.local");
             creatorAccount.UserName = "jane.creator@test.local";
-            var adminAccount = Account.CreateNew("Platform Admin", "admin@test.local");
+            var adminAccount = Account.CreateNew("Platform Admin", "goat", "admin@test.local");
             adminAccount.UserName = "admin@test.local";
 
             await _userManager.CreateAsync(sponsorAccount, "P@ssw0rd123!");
