@@ -11,13 +11,14 @@ namespace Clabber.Backend.Domain.Entities.Profile
         // Navigation properties
         public Verification? Verification { get; set; } = default!;
 
-        public static Account CreateNew(string displayName, string email)
+        public static Account CreateNew(string displayName, string userName, string email)
         {
             return new Account()
             {
                 Id = Guid.NewGuid(),
                 Email = email,
                 DisplayName = displayName,
+                UserName = userName,
                 CreatedAt = DateTime.UtcNow,
                 IsDeleted = false
             };
