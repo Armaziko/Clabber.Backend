@@ -27,6 +27,18 @@ namespace Clabber.Backend.Tests
             dbContext.Database.EnsureCreated();
             return dbContext;
         }
+
+        public static IdentityDbContext GetIdentityDbContexts()
+        {
+            var options = new DbContextOptionsBuilder<IdentityDbContext>()
+                .UseInMemoryDatabase(Guid.NewGuid()
+                .ToString())
+                .Options;
+
+            var dbContext = new IdentityDbContext(options);
+            dbContext.Database.EnsureCreated();
+            return dbContext;
+        }
     }
     #endregion
 
@@ -36,8 +48,9 @@ namespace Clabber.Backend.Tests
         public async Task Add_Should_Add_Item_To_Repository()
         {
             //Arrange
-            var dbContext = InMemoryDbContextProvider.GetApplicationDbContext();
-            var unitOfWork = new UnitOfWork(dbContext);
+            var appDbContext = InMemoryDbContextProvider.GetApplicationDbContext();
+            var identityDbContext = InMemoryDbContextProvider.GetIdentityDbContexts();
+            var unitOfWork = new UnitOfWork(appDbContext, identityDbContext);
             IRepository<Campaign> repo = unitOfWork.Repository<Campaign>();
             var campaign = new Campaign(Guid.NewGuid())
             {
