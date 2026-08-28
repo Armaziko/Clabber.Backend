@@ -24,14 +24,17 @@ namespace Clabber.Backend.Application.CQRS.Commands.Account
         {
             try
             {
-                var newAccount = DomainAccount.CreateNew(request.Model.DisplayName, request.Model.Mail);
+                var newAccount = DomainAccount.CreateNew(request.Model.DisplayName, request.Model.UserName, request.Model.Mail);
                 await userManager.CreateAsync(newAccount, request.Model.Password);
-                return Result.Success();
-            }
-            catch (IdentityException ie)
-            {
-                this.logger.LogError(ie, "An Identity error has occured.");
-                return Result.Failed();
+
+                var result = await userManager.CreateAsync(newAccount, request.Model.Password);
+
+                if (!result.Succeeded)
+                {
+                    return Result.Failed();
+                }
+                
+                    return Result.Success();
             }
             catch (Exception e)
             {
