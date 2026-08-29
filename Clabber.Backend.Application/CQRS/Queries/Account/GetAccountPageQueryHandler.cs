@@ -18,7 +18,10 @@ namespace Clabber.Backend.Application.CQRS.Queries.Account
         {
             var repo = this.unitOfWork.Repository<DomainAccount>();
 
-            var specification = new Specification<DomainAccount>(x => !(request.OnlyVerified ?? false) || (x.Verification != null && x.Verification.Status == Domain.Enums.VerificationStatus.Verified));
+            var specification = new Specification<DomainAccount>(x =>
+                !(request.OnlyVerified ?? false)
+                || (x.Verification != null && x.Verification.Status == Domain.Enums.VerificationStatus.Verified)
+            );
             specification.AddInclude(x => x.Verification!);
             specification.AsNoTrackingQuery();
             specification.AddOrderBy(x => x.DisplayName);
@@ -28,7 +31,8 @@ namespace Clabber.Backend.Application.CQRS.Queries.Account
             {
                 Id = x.Id,
                 DisplayName = x.DisplayName,
-                Email = !string.IsNullOrWhiteSpace(x.Email) ? x.Email : "anonymous@nomail.com"
+                Email = !string.IsNullOrWhiteSpace(x.Email) ? x.Email : "anonymous@nomail.com",
+                IsVerified = x.Verification?.IsVerified() ?? false,
             }).ToList();
 
             return Result<IReadOnlyList<AccountDto>>.Success(usersDto ?? []);
