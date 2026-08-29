@@ -16,5 +16,10 @@ namespace Clabber.Backend.Domain.Entities.Profile
 
         // Navigation property
         public Account Account { get; set; } = default!;
+
+        public bool IsVerified()
+        {
+            return Status == VerificationStatus.Verified;
+        }
     }
 }
