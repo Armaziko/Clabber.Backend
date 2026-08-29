@@ -25,8 +25,6 @@ namespace Clabber.Backend.Application.CQRS.Commands.Account
             try
             {
                 var newAccount = DomainAccount.CreateNew(request.Model.DisplayName, request.Model.UserName, request.Model.Mail);
-                await userManager.CreateAsync(newAccount, request.Model.Password);
-
                 var result = await userManager.CreateAsync(newAccount, request.Model.Password);
 
                 if (!result.Succeeded)
