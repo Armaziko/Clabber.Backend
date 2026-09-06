@@ -8,6 +8,8 @@ namespace Clabber.Backend.Api
         {
             builder.SetupCors();
             builder.SetUpIdentity();
+            builder.SetUpAuthentication();
+            builder.SetUpAuthorization();
         }
     }
 }
