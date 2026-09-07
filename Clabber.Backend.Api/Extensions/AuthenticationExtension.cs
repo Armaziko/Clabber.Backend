@@ -1,4 +1,4 @@
-﻿using Clabber.Backend.Api.Options;
+﻿using Clabber.Backend.Infrastructure.Config;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -9,10 +9,10 @@ namespace Clabber.Backend.Api.Extensions
     {
         public static void SetUpAuthentication(this IHostApplicationBuilder builder)
         {
-            var configs = builder.Configuration.GetSection(AuthOptions.NameTitle).Get<AuthOptions>();
+            var configs = builder.Configuration.GetSection(AuthConfig.NameTitle).Get<AuthConfig>();
             if (configs == null)
             {
-                throw new InvalidOperationException($"The {AuthOptions.NameTitle} in appsettings couldn't be extracted into 'configs' variable");
+                throw new InvalidOperationException($"The {AuthConfig.NameTitle} in appsettings couldn't be extracted into 'configs' variable");
             }
 
             builder.Services.AddAuthentication(options =>
@@ -23,6 +23,8 @@ namespace Clabber.Backend.Api.Extensions
             {
 
                 options.IncludeErrorDetails = false;
+
+                options.MapInboundClaims = false;
 
                 options.TokenValidationParameters = new TokenValidationParameters()
                 {
