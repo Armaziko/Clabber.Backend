@@ -3,6 +3,8 @@ using Clabber.Backend.Application.CQRS.Commands.Account;
 using Clabber.Backend.Application.CQRS.Queries.Account;
 using Clabber.Backend.Application.DTOs.RequestDTOs.Account;
 using MediatR;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Clabber.Backend.Api.Controllers
@@ -25,6 +27,7 @@ namespace Clabber.Backend.Api.Controllers
         }
 
         [HttpGet("all")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> GetAccountPage([FromQuery] GetAccountPageQuery query)
         {
             var getAllResult = await this.mediator.Send(query);
@@ -40,6 +43,7 @@ namespace Clabber.Backend.Api.Controllers
         }
 
         [HttpPut("{id:guid}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> UpdateComplete([FromRoute] Guid id, [FromBody] CompleteUpdateAccountDto dto)
         {
             if (id != dto.Id)
@@ -52,6 +56,7 @@ namespace Clabber.Backend.Api.Controllers
         }
 
         [HttpPatch("{id:guid}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> UpdatePartial([FromRoute] Guid id, [FromBody] PartialUpdateAccountDto dto)
         {
             if (id != dto.Id)
@@ -64,6 +69,7 @@ namespace Clabber.Backend.Api.Controllers
         }
 
         [HttpDelete("{id:guid}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> DeleteById([FromRoute] Guid id)
         {
             var command = new DeleteAccountCommand(id);
