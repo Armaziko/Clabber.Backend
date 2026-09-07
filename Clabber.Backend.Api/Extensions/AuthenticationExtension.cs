@@ -9,10 +9,10 @@ namespace Clabber.Backend.Api.Extensions
     {
         public static void SetUpAuthentication(this IHostApplicationBuilder builder)
         {
-            var configs = builder.Configuration.GetSection(AuthConfig.NameTitle).Get<AuthConfig>();
+            var configs = builder.Configuration.GetSection(AuthBearerTokenConfig.NameTitle).Get<AuthBearerTokenConfig>();
             if (configs == null)
             {
-                throw new InvalidOperationException($"The {AuthConfig.NameTitle} in appsettings couldn't be extracted into 'configs' variable");
+                throw new InvalidOperationException($"The {AuthBearerTokenConfig.NameTitle} in appsettings couldn't be extracted into 'configs' variable");
             }
 
             builder.Services.AddAuthentication(options =>

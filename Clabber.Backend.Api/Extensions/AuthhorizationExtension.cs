@@ -1,4 +1,4 @@
-﻿using Clabber.Backend.Api.Config;
+﻿using Clabber.Backend.Infrastructure.Config;
 
 namespace Clabber.Backend.Api.Extensions
 {
