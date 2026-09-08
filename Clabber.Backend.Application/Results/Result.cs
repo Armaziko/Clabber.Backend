@@ -71,7 +71,7 @@
         public new static Result<T> ValidationFailed() => new Result<T>(false, "Validation failed.", OperationStatusCode.VALIDATION_FAILED, default);
         public new static Result<T> ValidationFailed(string message) => new Result<T>(false, message, OperationStatusCode.VALIDATION_FAILED, default);
         public new static Result<T> ValidationFailed(List<string> messages) => new Result<T>(false, messages, OperationStatusCode.VALIDATION_FAILED, default);
-        public new static Result<T> Unauthorized() => new Result<T>(false, OperationStatusCode.UNAUTHORIZED, default);
+        public static Result<T> Unauthorized() => new Result<T>(false, OperationStatusCode.UNAUTHORIZED, default);
         public new static Result<T> NotFound() => new Result<T>(false, "Not found.", OperationStatusCode.NOT_FOUND, default);
     }
 }
