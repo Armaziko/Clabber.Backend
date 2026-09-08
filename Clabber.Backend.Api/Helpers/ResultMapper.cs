@@ -12,6 +12,7 @@ namespace Clabber.Backend.Api.Helpers
                 OperationStatusCode.SUCCESS => (int)HttpStatusCode.OK,
                 OperationStatusCode.VALIDATION_FAILED => (int)HttpStatusCode.BadRequest,
                 OperationStatusCode.NOT_FOUND => (int)HttpStatusCode.NotFound,
+                OperationStatusCode.UNAUTHORIZED => (int)HttpStatusCode.Unauthorized,
                 _ => (int)HttpStatusCode.InternalServerError
             };
         }
