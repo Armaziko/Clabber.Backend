@@ -24,13 +24,13 @@ namespace Clabber.Backend.Infrastructure.Services
             };
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenConfig.IssuerSigningKey));
-            SigningCredentials credentials = new SigningCredentials(securityKey, SecurityAlgorithms.Sha256);
+            SigningCredentials credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
             var jwt = new JwtSecurityToken(
                 issuer: tokenConfig.ValidIssuer, 
                 audience: tokenConfig.ValidAudience, 
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(tokenConfig.TokenLifetimeInMinutes),
+                expires: DateTime.Now.AddMinutes(tokenConfig.TokenLifetimeMinutes),
                 signingCredentials: credentials);
 
 
