@@ -41,6 +41,7 @@
         public static Result ValidationFailed() => new Result(false, "Validation failed.", OperationStatusCode.VALIDATION_FAILED);
         public static Result ValidationFailed(string message) => new Result(false, message, OperationStatusCode.VALIDATION_FAILED);
         public static Result ValidationFailed(List<string> messages) => new Result(false, messages, OperationStatusCode.VALIDATION_FAILED);
+        public static Result Unauthorized() => new Result(false, OperationStatusCode.UNAUTHORIZED);
         public static Result NotFound() => new Result(false, "Not found.", OperationStatusCode.NOT_FOUND);
 
     }
@@ -70,6 +71,7 @@
         public new static Result<T> ValidationFailed() => new Result<T>(false, "Validation failed.", OperationStatusCode.VALIDATION_FAILED, default);
         public new static Result<T> ValidationFailed(string message) => new Result<T>(false, message, OperationStatusCode.VALIDATION_FAILED, default);
         public new static Result<T> ValidationFailed(List<string> messages) => new Result<T>(false, messages, OperationStatusCode.VALIDATION_FAILED, default);
+        public static Result<T> Unauthorized() => new Result<T>(false, OperationStatusCode.UNAUTHORIZED, default);
         public new static Result<T> NotFound() => new Result<T>(false, "Not found.", OperationStatusCode.NOT_FOUND, default);
     }
 }
