@@ -37,6 +37,11 @@ namespace Clabber.Backend.Api.Extensions
                 return controller.StatusCode(ResultMapper.GetHttpStatusCode(result.StatusCode), new { messages = result.Messages });
             }
 
+            if (value is null)
+            {
+                return controller.StatusCode(ResultMapper.GetHttpStatusCode(result.StatusCode));
+            }
+
             return controller.StatusCode(ResultMapper.GetHttpStatusCode(result.StatusCode), value);
         }
     }
