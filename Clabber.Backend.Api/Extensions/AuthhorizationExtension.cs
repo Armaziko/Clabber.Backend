@@ -6,7 +6,7 @@ namespace Clabber.Backend.Api.Extensions
     {
         public static void SetUpAuthorization(this IHostApplicationBuilder builder)
         {
-            var config = builder.Configuration.GetSection("AuthDetails:Rights").Get<RightsConfig>();
+            var config = builder.Configuration.GetSection(RightsConfig.NameTitle).Get<RightsConfig>();
             if (config is null)
             {
                 throw new InvalidOperationException("RightsConfig object couldn't be created using AuthDetails:Rights.");
